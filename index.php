@@ -2,23 +2,57 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>211-361 Засташков ЛР 2</title>
+<!--    <title>211-361 Засташков ЛР 2</title>-->
     <link rel="stylesheet" href="main.css">
-    <?php
-    $name = "Засташков Даниил 211-361 Лаб_3";
-    echo '<title>Засташков Даниил 211-361 Лаб_3</title>'
-    ?>
+    <title>
+        <?php
+            $name = "Засташков Даниил 211-361 Лаб_3";
+            echo $name
+        ?>
+    </title>
 </head>
 <body>
 <header class="header">
     <div class="container">
         <nav class="main-menu">
-            <a href="#main">Моя страница</a>
-            <a href="#about">Обо мне</a>
-            <a href="#skills">Навыки</a>
-            <a href="#technologies">Технологии</a>
-            <a href="feedback.html">Обратная связь</a>
-            <a href="registration.html">Регистрация</a>
+            <ul class="menu-list">
+                <li>
+                    <a href="#main">Моя страница</a>
+                </li>
+                <li>
+                    <a href="#about">Обо мне</a>
+                </li>
+                <li>
+                    <a href="#skills">Навыки</a>
+                </li>
+                <li>
+                    <a href="#technologies">Технологии</a>
+                </li>
+                <li>
+                    <a href="<?php
+                            $name='Обратная связь';
+                            $link='feedback.php';
+                            $current_page=true;
+                            echo $link;
+                    ?>"
+                    class=" <?php if ($current_page) echo "selected";
+                    ?>">
+                        <?php echo $name ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php
+                    $name='Регистрация';
+                    $link='registration.php';
+                    $current_page=true;
+                    echo $link;
+                    ?>"
+                       class=" <?php if ($current_page) echo "selected";
+                       ?>">
+                        <?php echo $name ?>
+                    </a>
+                </li>
+            </ul>
         </nav>
         <div class="text-center py-5" >
             <h1 class="name">Засташков Даниил Андреевич</h1>
@@ -32,9 +66,14 @@
 <main>
     <div class="container">
         <section id="about">
-            <h1>Обо мне</h1>
+            <h1>Курсы web-разработки на платформе Udemy</h1>
             <figure class="avatar">
-                <img src="images/person.svg" alt="Person">
+                <?php
+                    echo '<img src="images/web_bootcamp';
+                    echo date('s') % 2 + 1;
+                    echo '.jpg" alt="Меняющаяся фотография">';
+                ?>
+<!--                <img src="images/person.svg" alt="Person">-->
             </figure>
             <p>
                 Кстати, активно развивающиеся страны третьего мира будут призваны к ответу. Картельные сговоры не допускают ситуации, при которой многие известные личности, превозмогая сложившуюся непростую экономическую ситуацию, объединены в целые кластеры себе подобных. Повседневная практика показывает, что дальнейшее развитие различных форм деятельности способствует повышению качества новых предложений. Но многие известные личности обнародованы.
@@ -44,7 +83,15 @@
         <section id="skills">
             <h1>Технологии</h1>
             <p>
-                Следует отметить, что существующая теория способствует повышению качества экспериментов поражающих по своей масштабности и грандиозности. Приятно, граждане, наблюдать, как тщательные исследования конкурентов ограничены исключительно образом мышления. Внезапно, интерактивные прототипы призывают нас к новым свершениям, которые, в свою очередь, должны быть описаны максимально подробно.
+                <?php
+                $mass = array('1. Элементы', '2. Списка', '3. Представлены', '4. Динамически');
+                ?>
+            <ul>
+                <li><?=$mass[0];?></li>
+                <li><?=$mass[1];?></li>
+                <li><?=$mass[2];?></li>
+                <li><?=$mass[3];?></li>
+            </ul>
             </p>
             <div class="text-right">
                 <a class="btn" href="skills.html">Подробнее</a>
@@ -74,6 +121,11 @@
         <p>Email: zast2020@mail.ru</p>
         <p>Phone: +7(923)082-22-72</p>
         <p>&copy; Засташков Д. А.</p>
+        <p>
+            <?php
+            echo date('Сформировано d.m.Y в G:i:s', time()+3600*3);
+            ?>
+        </p>
     </div>
 </footer>
 </body>

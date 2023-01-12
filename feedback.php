@@ -10,12 +10,44 @@
     <header class="header">
         <div class="container">
             <nav class="main-menu">
-                <a href="test.html">Моя страница</a>
-                <a href="test.html">Обо мне</a>
-                <a href="test.html">Навыки</a>
-                <a href="test.html">Технологии</a>
-                <a href="feedback.html">Обратная связь</a>
-                <a href="registration.html">Регистрация</a>
+                <ul class="menu-list">
+                    <li>
+                        <a href="index.php">Моя страница</a>
+                    </li>
+                    <li>
+                        <a href="#about">Обо мне</a>
+                    </li>
+                    <li>
+                        <a href="#skills">Навыки</a>
+                    </li>
+                    <li>
+                        <a href="#technologies">Технологии</a>
+                    </li>
+                    <li>
+                        <a href="<?php
+                        $name='Обратная связь';
+                        $link='feedback.php';
+                        $current_page=true;
+                        echo $link;
+                        ?>"
+                           class=" <?php if ($current_page) echo "selected";
+                           ?>">
+                            <?php echo $name ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php
+                        $name='Регистрация';
+                        $link='registration.php';
+                        $current_page=true;
+                        echo $link;
+                        ?>"
+                           class=" <?php if ($current_page) echo "selected";
+                           ?>">
+                            <?php echo $name ?>
+                        </a>
+                    </li>
+                </ul>
             </nav>
             <div class="text-center py-5" >
                 <h1 class="name">Засташков Даниил Андреевич</h1>
